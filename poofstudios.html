@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poof Studios | Professional Photography</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations and effects */
+        .camera-animation {
+            animation: moveCamera 8s ease-in-out infinite;
+        }
+        
+        @keyframes moveCamera {
+            0%, 100% { transform: translateX(-10px) rotate(-5deg); }
+            50% { transform: translateX(10px) rotate(5deg); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .booking-form input, .booking-form select, .booking-form textarea {
+            transition: all 0.3s ease;
+        }
+        
+        .booking-form input:focus, .booking-form select:focus, .booking-form textarea:focus {
+            transform: scale(1.02);
+            box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.3);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-camera-retro text-2xl text-purple-600 mr-2"></i>
+                        <span class="text-xl font-bold text-gray-900">Poof Studios</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#home" class="text-gray-900 hover:text-purple-600 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="#work" class="text-gray-900 hover:text-purple-600 px-3 py-2 text-sm font-medium">Our Work</a>
+                    <a href="#booking" class="text-gray-900 hover:text-purple-600 px-3 py-2 text-sm font-medium">Book a Session</a>
+                    <a href="#location" class="text-gray-900 hover:text-purple-600 px-3 py-2 text-sm font-medium">Location</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="text-gray-900 hover:text-purple-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#work" class="text-gray-900 hover:text-purple-600 block px-3 py-2 rounded-md text-base font-medium">Our Work</a>
+                <a href="#booking" class="text-gray-900 hover:text-purple-600 block px-3 py-2 rounded-md text-base font-medium">Book a Session</a>
+                <a href="#location" class="text-gray-900 hover:text-purple-600 block px-3 py-2 rounded-md text-base font-medium">Location</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gradient-to-r from-purple-500 to-pink-500 text-white py-20 md:py-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">Capture Your <span class="text-yellow-300">Perfect</span> Moment</h1>
+                    <p class="text-xl mb-8">Poof Studios specializes in creating stunning visual stories that last a lifetime. Professional photography for weddings, portraits, and commercial work.</p>
+                    <div class="flex space-x-4">
+                        <a href="#booking" class="bg-white text-purple-600 hover:bg-gray-100 px-6 py-3 rounded-full font-semibold shadow-lg transition duration-300">Book Now</a>
+                        <a href="#work" class="border-2 border-white hover:bg-white hover:text-purple-600 px-6 py-3 rounded-full font-semibold transition duration-300">View Portfolio</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center camera-animation">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camera" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-8 border-white shadow-2xl">
+                        <div class="absolute -bottom-5 -right-5 bg-yellow-400 text-purple-900 p-3 rounded-full shadow-lg">
+                            <i class="fas fa-bolt text-3xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute top-0 left-0 w-full h-full opacity-20">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-purple-600 to-pink-600"></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Our Photography Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-xl transition duration-300">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-ring text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Wedding Photography</h3>
+                    <p class="text-gray-600">Capture every precious moment of your special day with our professional wedding photography services.</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-xl transition duration-300">
+                    <div class="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-user text-pink-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Portrait Sessions</h3>
+                    <p class="text-gray-600">Professional portrait photography for individuals, families, and corporate headshots.</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-xl transition duration-300">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-store text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Commercial Work</h3>
+                    <p class="text-gray-600">High-quality product and commercial photography to showcase your business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="work" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Our Portfolio</h2>
+            
+            <div class="flex justify-center mb-8">
+                <div class="inline-flex rounded-md shadow-sm" role="group">
+                    <button type="button" class="filter-btn px-4 py-2 text-sm font-medium rounded-l-lg bg-purple-600 text-white" data-filter="all">
+                        All
+                    </button>
+                    <button type="button" class="filter-btn px-4 py-2 text-sm font-medium bg-white text-gray-900 hover:bg-gray-100" data-filter="wedding">
+                        Weddings
+                    </button>
+                    <button type="button" class="filter-btn px-4 py-2 text-sm font-medium bg-white text-gray-900 hover:bg-gray-100" data-filter="portrait">
+                        Portraits
+                    </button>
+                    <button type="button" class="filter-btn px-4 py-2 text-sm font-medium rounded-r-lg bg-white text-gray-900 hover:bg-gray-100" data-filter="commercial">
+                        Commercial
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 gallery-container">
+                <!-- Wedding Images -->
+                <div class="gallery-item rounded-xl overflow-hidden shadow-md bg-white wedding" data-category="wedding">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Wedding photo" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Sarah & Michael</h3>
+                        <p class="text-gray-600 text-sm">Summer Wedding</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl overflow-hidden shadow-md bg-white wedding" data-category="wedding">
+                    <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Wedding photo" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Emma & James</h3>
+                        <p class="text-gray-600 text-sm">Beach Wedding</p>
+                    </div>
+                </div>
+                
+                <!-- Portrait Images -->
+                <div class="gallery-item rounded-xl overflow-hidden shadow-md bg-white portrait" data-category="portrait">
+                    <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Portrait photo" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Family Portrait</h3>
+                        <p class="text-gray-600 text-sm">The Johnson Family</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl overflow-hidden shadow-md bg-white portrait" data-category="portrait">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Portrait photo" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Corporate Headshot</h3>
+                        <p class="text-gray-600 text-sm">Tech Executive</p>
+                    </div>
+                </div>
+                
+                <!-- Commercial Images -->
+                <div class="gallery-item rounded-xl overflow-hidden shadow-md bg-white commercial" data-category="commercial">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Commercial photo" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Real Estate</h3>
+                        <p class="text-gray-600 text-sm">Luxury Home</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl overflow-hidden shadow-md bg-white commercial" data-category="commercial">
+                    <img src="https://images.unsplash.com/photo-1600008646149-df9c48f1ff63?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Product photo" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Product Photography</h3>
+                        <p class="text-gray-600 text-sm">Cosmetics Line</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#booking" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-full transition duration-300">
+                    Book Your Session Today
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">What Our Clients Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80" alt="">
+                        </div>
+                        <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900">Sarah Johnson</div>
+                            <div class="text-sm text-gray-500">Wedding Client</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Poof Studios captured our wedding day perfectly! The photos are stunning and really captured the emotion of the day. We'll cherish them forever."</p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80" alt="">
+                        </div>
+                        <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900">Michael Chen</div>
+                            <div class="text-sm text-gray-500">Corporate Client</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"The team at Poof Studios did an amazing job with our company headshots. Professional, efficient, and the results were outstanding."</p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80" alt="">
+                        </div>
+                        <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900">David Wilson</div>
+                            <div class="text-sm text-gray-500">Family Portrait</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Our family photos turned out better than we could have imagined. The photographer made us all feel comfortable and captured our personalities perfectly."</p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="py-16 bg-purple-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Book Your Session</h2>
+            
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-purple-700 p-8 flex items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4">Ready to create magic?</h3>
+                            <p class="mb-6">Fill out the form to book your photography session. We'll get back to you within 24 hours to confirm your appointment.</p>
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-phone-alt mr-3"></i>
+                                <span>(555) 123-4567</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope mr-3"></i>
+                                <span>bookings@poofstudios.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-8 booking-form">
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="service" class="block text-gray-700 font-medium mb-2">Service Type</label>
+                                <select id="service" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                    <option value="">Select a service</option>
+                                    <option value="wedding">Wedding Photography</option>
+                                    <option value="portrait">Portrait Session</option>
+                                    <option value="commercial">Commercial Photography</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="date" class="block text-gray-700 font-medium mb-2">Preferred Date</label>
+                                <input type="date" id="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Special Requests</label>
+                                <textarea id="message" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-300">
+                                Submit Booking Request
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Our Studio Location</h2>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2 bg-gray-50 p-8 rounded-xl">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Visit Us</h3>
+                    <p class="text-gray-600 mb-6">Our studio is located in the heart of the city, with ample parking and easy access to public transportation.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-purple-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-gray-900">Address</h4>
+                                <p class="text-gray-600">123 Photography Lane<br>Creative District<br>New York, NY 10001</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-clock text-purple-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-gray-900">Hours</h4>
+                                <p class="text-gray-600">Monday - Friday: 9am - 6pm<br>Saturday: 10am - 4pm<br>Sunday: Closed</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-subway text-purple-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-medium text-gray-900">Public Transport</h4>
+                                <p class="text-gray-600">Subway: A, C, E to 14th St<br>Bus: M14 to 7th Ave</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="h-full w-full rounded-xl overflow-hidden shadow-lg">
+                        <!-- Google Maps iframe -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215256218927!2d-73.9969879242396!3d40.74264497138846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf5c8aef99%3A0xbc8a50f6e1a8a07c!2s123%20Photography%20Ln%2C%20New%20York%2C%20NY%2010001%2C%20USA!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s" width="100%" height="100%" style="min-height: 400px;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-camera-retro text-purple-500 mr-2"></i>
+                        Poof Studios
+                    </h3>
+                    <p class="text-gray-400">Capturing life's most precious moments with creativity and passion.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#work" class="text-gray-400 hover:text-white transition duration-300">Our Work</a></li>
+                        <li><a href="#booking" class="text-gray-400 hover:text-white transition duration-300">Book a Session</a></li>
+                        <li><a href="#location" class="text-gray-400 hover:text-white transition duration-300">Location</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Wedding Photography</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Portrait Sessions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Commercial Work</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Event Coverage</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">Subscribe to our newsletter</p>
+                    <div class="mt-2 flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg text-gray-900 focus:outline-none w-full">
+                        <button class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-r-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2023 Poof Studios. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-purple-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-purple-700 transition duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Gallery filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('bg-purple-600', 'text-white');
+                    btn.classList.add('bg-white', 'text-gray-900');
+                });
+                
+                // Add active class to clicked button
+                button.classList.remove('bg-white', 'text-gray-900');
+                button.classList.add('bg-purple-600', 'text-white');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
